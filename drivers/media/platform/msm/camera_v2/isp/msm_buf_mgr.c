@@ -489,6 +489,10 @@ static int msm_isp_buf_done(struct msm_isp_buf_mgr *buf_mgr,
 				pr_err("%s: Buf put failed\n", __func__);
 				return rc;
 			}
+		} else {
+			buf_mgr->vb2_ops->buf_done(buf_info->vb2_buf,
+				bufq->session_id, bufq->stream_id,
+				frame_id, tv, output_format);
 		}
 	}
 
