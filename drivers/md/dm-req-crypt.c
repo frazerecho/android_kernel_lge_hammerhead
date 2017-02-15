@@ -616,6 +616,8 @@ static void req_crypt_status(struct dm_target *ti, status_type_t type,
 
 static void req_crypt_dtr(struct dm_target *ti)
 {
+	if (dev)
+		dm_put_device(ti, dev);
 	if (req_crypt_queue)
 		destroy_workqueue(req_crypt_queue);
 	if (req_io_pool)
