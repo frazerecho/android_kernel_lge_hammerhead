@@ -608,10 +608,10 @@ submit_request:
 
 }
 
-static int req_crypt_status(struct dm_target *ti, status_type_t type,
+static void req_crypt_status(struct dm_target *ti, status_type_t type,
 			char *result, unsigned maxlen)
 {
-	return 0;
+	return;
 }
 
 static void req_crypt_dtr(struct dm_target *ti)
